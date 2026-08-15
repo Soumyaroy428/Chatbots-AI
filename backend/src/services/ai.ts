@@ -21,14 +21,22 @@ type AiConfig = {
 };
 
 function getConfig(): AiConfig {
-  const provider = (process.env.AI_PROVIDER || "ollama").toLowerCase() === "openai" ? "openai" : "ollama";
+  const explicit = (process.env.AI_PROVIDER || "").toLowerCase();
+  const provider: "ollama" | "openai" =
+    explicit === "ollama"
+      ? "ollama"
+      : explicit === "openai"
+        ? "openai"
+        : process.env.VERCEL
+          ? "openai"
+          : "ollama";
 
   if (provider === "ollama") {
     return {
       provider,
       apiKey: process.env.OLLAMA_API_KEY?.trim() || "ollama",
       baseUrl: (process.env.OLLAMA_BASE_URL || "http://localhost:11434/v1").replace(/\/$/, ""),
-      model: process.env.OLLAMA_MODEL || "gpt-oss:latest",
+      model: process.env.OLLAMA_MODEL || "llama3.2",
     };
   }
 

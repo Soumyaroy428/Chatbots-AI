@@ -55,10 +55,13 @@ chatbots-ai/
 - User profile + dark/light/system theme
 - Responsive layout
 
-## Database
+## Deploy to Vercel
 
-Set `DATABASE_URL` in `backend/.env` to your MongoDB Atlas connection string (include a database name, e.g. `/chatbots-ai`), then:
+See **[docs/DEPLOY.md](docs/DEPLOY.md)** for the full checklist.
 
-```bash
-npm run db:push --prefix backend
-```
+Summary:
+1. Push to GitHub → Import in Vercel  
+2. Set env vars: `DATABASE_URL`, `JWT_SECRET`, `CLIENT_URL`, `AI_PROVIDER=openai`, `OPENAI_API_KEY`  
+3. Deploy  
+
+Local AI uses **Ollama**. Production on Vercel uses **OpenAI** (Ollama is not available in the cloud).

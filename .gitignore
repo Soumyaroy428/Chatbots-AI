@@ -11,3 +11,4 @@ backend/prisma/*.db-journal
 backend/uploads/
 .vite/
 coverage/
+.vercel/
