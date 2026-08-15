@@ -57,7 +57,7 @@ chatbots-ai/
 
 ## Deploy to Vercel
 
-See **[docs/DEPLOY.md](docs/DEPLOY.md)** for the full checklist.
+See **[Chatbots AI](https://chatbots-ai-v2wi.vercel.app/)** for the deployed application.
 
 Summary:
 1. Push to GitHub → Import in Vercel  
